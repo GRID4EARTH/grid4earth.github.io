@@ -59,12 +59,19 @@
     <span class="tag">{{ e.dggs.tag }}</span>
     <h2 class="section-title">{{ e.dggs.title }}</h2>
     <p class="section-lead">{{ e.dggs.subtitle }}</p>
-    {% if e.dggs.figure %}
+    {% if e.dggs.figure_embed or e.dggs.figure %}
     <div class="figure-block">
+      {% if e.dggs.figure_embed %}
+      <figure class="figure figure-globe">
+        <iframe src="{{ get_url(path=e.dggs.figure_embed) }}" title="Interactive HEALPix globe" loading="lazy"></iframe>
+        <figcaption>{{ e.dggs.figure_caption }}</figcaption>
+      </figure>
+      {% else %}
       <figure class="figure figure-center">
         <img src="{{ get_url(path=e.dggs.figure) }}" alt="{{ e.dggs.figure_caption }}">
         <figcaption>{{ e.dggs.figure_caption }}</figcaption>
       </figure>
+      {% endif %}
       {% if e.dggs.figure_code %}{{ cards::code_box(path=e.dggs.figure_code) }}{% endif %}
     </div>
     {% endif %}
