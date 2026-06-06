@@ -65,7 +65,7 @@ subtitle = "GRID4EARTH builds a unified, standardized data infrastructure on Dis
 primary_button_text = "Explore the tools"
 primary_button_url = "/tools/"
 secondary_button_text = "Learn more"
-secondary_button_url = "https://eopf.copernicus.eu"
+secondary_button_url = "/#dggs"
 image = "/img/grid4earth-globe.png"
 image_alt = "The HEALPix grid drawn on the globe — the GRID4EARTH logo"
 
@@ -100,9 +100,9 @@ icon = "cloud"
 tag = "WHY A DGGS"
 title = "From a fragmented grid landscape to analysis-ready data"
 subtitle = "HEALPix gives climate models (on the sphere) and Earth Observation (on the ellipsoid) a single common grid — no regridding, consistent statistics, interoperable workflows."
-figure = "/img/healpix-ellipsoid-globe.png"
-figure_code = "scripts/figures/snippets/healpix-ellipsoid-globe.py"
-figure_caption = "The HEALPix tessellation on Earth — an equal-area quadtree. The 12 base cells (red) each subdivide into four children at every depth (grey). (Whether this is computed on a sphere or the WGS84 ellipsoid is invisible at this scale — that difference is shown below, where it matters.)"
+figure_embed = "/embeds/healpix-globe.html"
+figure_code = "scripts/figures/make_healpix_globe.py"
+figure_caption = "The HEALPix tessellation on Earth — an equal-area quadtree (drag to rotate). The 12 base cells (red) each subdivide into four children at every depth. (Whether this is computed on a sphere or the WGS84 ellipsoid is invisible at this scale — that difference is shown below, where it matters.)"
 
 [[extra.dggs.cards]]
 title = "The problem"
@@ -125,8 +125,7 @@ tag = "ELLIPSOIDAL HEALPIX"
 title = "How healpix-geo keeps equal area on the real Earth"
 body = "HEALPix is defined on a perfect sphere — but Earth is a WGS84 ellipsoid. At Copernicus resolution that ~0.3% flattening introduces a latitude-dependent area bias of up to 0.67%, enough to break zonal statistics. <strong>healpix-geo</strong> maps the ellipsoid onto an authalic (equal-area) sphere, pixelises it with standard HEALPix, then maps back. The transform is exact, invertible to ~1 nm, and backward compatible with spherical HEALPix — only the coordinate mapping changes, so no new tooling is needed."
 image = "/img/ellipsoid-authalic-healpix.png"
-image_code = "scripts/figures/snippets/ellipsoid-authalic-healpix.py"
-image_caption = "Ellipsoid → authalic sphere → HEALPix → ellipsoid pixelization. The authalic mapping preserves surface area, so the hierarchical, iso-latitude and equal-area properties carry over to WGS84. (Ellipse flattening exaggerated for clarity.)"
+image_caption = "Ellipsoid → authalic sphere → HEALPix → ellipsoid pixelization. θ is the geocentric and φ the geodetic latitude (the surface normal); the authalic mapping preserves surface area, so the hierarchical, iso-latitude and equal-area properties carry over to WGS84. Figure from the healpix-geo documentation."
 code_caption = "Evaluate HEALPix on the WGS84 ellipsoid — one keyword. The sphere-vs-WGS84 comparison below is produced by this same library."
 code_url = "https://github.com/GRID4EARTH/grid4earth.github.io/blob/main/scripts/figures/make_dggs_figures.py"
 code_path = "scripts/figures/make_dggs_figures.py"
@@ -135,7 +134,7 @@ results_title = "Why the reference surface matters"
 [[extra.ellipsoidal.results]]
 image = "/img/healpix-sphere-vs-ellipsoid.png"
 code = "scripts/figures/snippets/healpix-sphere-vs-ellipsoid.py"
-caption = "Switching the reference surface from a sphere to WGS84 reassigns a latitude-dependent share of points to a different cell — exact at the equator and poles, largest at mid-latitudes. Ignoring the ellipsoid bakes this bias into Copernicus-resolution analysis. Generated with healpix-geo."
+caption = "At fine resolution (depth 10 ≈ 3 arcmin cells), spherical vs WGS84 HEALPix put a latitude-dependent share of points in a different cell — near zero at the equator and poles, but most points at mid-latitudes. Ignoring the ellipsoid bakes this bias into Copernicus-resolution analysis. Generated with healpix-geo."
 
 [[extra.ellipsoidal.results]]
 image = "/img/healpix-resample-demo.png"
@@ -149,6 +148,13 @@ caption = "A continuous field on a regular lon/lat grid (left) aggregated onto e
 tag = "OPEN-SOURCE TOOLS"
 title = "The HEALPix tool family"
 subtitle = "A coherent open-source stack — built by GRID4EARTH — to index, resample, analyse and plot Earth data on the HEALPix grid. All free, on PyPI / conda-forge, with WGS84 ellipsoidal support."
+
+[[extra.tools_section.items]]
+name = "grid4earth"
+tagline = "The meta-package — “pip install grid4earth” installs the whole stack at once: healpix-geo, -resample, -analyse and -plot."
+icon = "boxes-stacked"
+doc_url = "https://github.com/GRID4EARTH/packages"
+pypi_url = "https://pypi.org/project/grid4earth/"
 
 [[extra.tools_section.items]]
 name = "healpix-geo"
@@ -165,6 +171,7 @@ tagline = "Regrid (lon, lat) data onto a HEALPix grid with GPU-accelerated spars
 icon = "arrows-to-dot"
 doc_url = "https://grid4earth.github.io/healpix-resample/"
 repo_url = "https://github.com/GRID4EARTH/healpix-resample"
+pypi_url = "https://pypi.org/project/healpix-resample/"
 
 [[extra.tools_section.items]]
 name = "healpix-analyse"
@@ -172,6 +179,7 @@ tagline = "A differentiable PyTorch toolkit for analysing signals on HEALPix gri
 icon = "wave-square"
 doc_url = "https://grid4earth.github.io/healpix-analyse/"
 repo_url = "https://github.com/GRID4EARTH/healpix-analyse"
+pypi_url = "https://pypi.org/project/healpix-analyse/"
 
 [[extra.tools_section.items]]
 name = "healpix-plot"
@@ -179,6 +187,7 @@ tagline = "Fast, practical static plots of HEALPix data with matplotlib and cart
 icon = "map"
 doc_url = "https://grid4earth.github.io/healpix-plot/"
 repo_url = "https://github.com/GRID4EARTH/healpix-plot"
+pypi_url = "https://pypi.org/project/healpix-plot/"
 
 # ── Viewers & integrations ─────────────────────────────────────────────────────
 # Third-party tools GRID4EARTH integrates with / extends — not project-authored.
@@ -186,6 +195,16 @@ repo_url = "https://github.com/GRID4EARTH/healpix-plot"
 [extra.integrations]
 title = "Viewers & integrations"
 subtitle = "Third-party tools that GRID4EARTH extends with HEALPix-ellipsoid support, so DGGS data works in the wider ecosystem."
+
+[[extra.integrations.items]]
+name = "xdggs"
+tagline = "An Xarray extension for Discrete Global Grid Systems — index, select and aggregate labelled data on HEALPix, H3 and more."
+icon = "table-cells"
+doc_url = "https://xdggs.readthedocs.io/"
+repo_url = "https://github.com/xarray-contrib/xdggs"
+pypi_url = "https://pypi.org/project/xdggs/"
+conda_url = "https://anaconda.org/conda-forge/xdggs"
+note = "Developed by the Xarray community — GRID4EARTH contributes HEALPix-ellipsoid support."
 
 [[extra.integrations.items]]
 name = "GridLook"

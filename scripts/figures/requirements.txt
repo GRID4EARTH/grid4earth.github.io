@@ -1,7 +1,11 @@
-# Dependencies to regenerate the DGGS figures in static/img/
+# Dependencies to regenerate the figures/embeds.
 #   python -m venv .venv && . .venv/bin/activate
 #   pip install -r scripts/figures/requirements.txt
-#   python scripts/figures/make_dggs_figures.py
+#   python scripts/figures/make_dggs_figures.py      # static figures (static/img/)
+#   python scripts/figures/make_healpix_globe.py     # interactive globe (static/embeds/)
 healpix-geo
 matplotlib
 numpy
+# interactive globe (make_healpix_globe.py)
+plotly
+healpy
