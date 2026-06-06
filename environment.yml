@@ -1,9 +1,0 @@
-name: eopf-dggs
-channels:
-  - conda-forge
-dependencies:
-  - mystmd
-  - jupyterlab-myst
-  - python-graphviz
-  - pystac-client
-  - pip

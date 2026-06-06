@@ -1,0 +1,11 @@
+# Zola build output
+/public
+
+# Python (figure generation)
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% import "macros/cards.html" as cards %}
+
+{% block content %}
+{% set e = config.extra %}
+
+{# ── Hero ─────────────────────────────────────────────────────────────── #}
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">{{ e.hero.eyebrow }}</p>
+      <h1 class="hero-title">{{ e.hero.title }}</h1>
+      <p class="hero-subtitle">{{ e.hero.subtitle }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ e.hero.primary_button_url }}">{{ e.hero.primary_button_text }}</a>
+        <a class="btn btn-ghost" href="{{ e.hero.secondary_button_url }}" target="_blank" rel="noopener">{{ e.hero.secondary_button_text }}</a>
+      </div>
+    </div>
+    {% if e.hero.image %}
+    <div class="hero-visual">
+      <img src="{{ get_url(path=e.hero.image) }}" alt="{{ e.hero.image_alt | default(value='') }}">
+    </div>
+    {% endif %}
+  </div>
+  <div class="hero-glow"></div>
+</section>
+
+{# ── Funders strip ────────────────────────────────────────────────────── #}
+<section class="funders">
+  <div class="container funders-inner">
+    <span class="funders-label">Funded by</span>
+    {% for f in e.funders %}
+    <a href="{{ f.url }}" target="_blank" rel="noopener" class="funder">{{ f.name }}</a>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── Overview ─────────────────────────────────────────────────────────── #}
+<section class="section" id="overview">
+  <div class="container">
+    <span class="tag">{{ e.overview.tag }}</span>
+    <h2 class="section-title">{{ e.overview.title }}</h2>
+    <p class="section-lead">{{ e.overview.body }}</p>
+    <div class="feature-grid">
+      {% for p in e.overview.points %}
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-{{ p.icon }}"></i></div>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── DGGS / HEALPix explainer ─────────────────────────────────────────── #}
+<section class="section section-alt" id="dggs">
+  <div class="container">
+    <span class="tag">{{ e.dggs.tag }}</span>
+    <h2 class="section-title">{{ e.dggs.title }}</h2>
+    <p class="section-lead">{{ e.dggs.subtitle }}</p>
+    {% if e.dggs.figure %}
+    <div class="figure-block">
+      <figure class="figure figure-center">
+        <img src="{{ get_url(path=e.dggs.figure) }}" alt="{{ e.dggs.figure_caption }}">
+        <figcaption>{{ e.dggs.figure_caption }}</figcaption>
+      </figure>
+      {% if e.dggs.figure_code %}{{ cards::code_box(path=e.dggs.figure_code) }}{% endif %}
+    </div>
+    {% endif %}
+    <div class="step-grid">
+      {% for c in e.dggs.cards %}
+      <div class="step-card">
+        <div class="step-icon"><i class="fa-solid fa-{{ c.icon }}"></i></div>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Ellipsoidal HEALPix / what healpix-geo does ──────────────────────── #}
+<section class="section" id="ellipsoidal">
+  <div class="container">
+    <div class="split">
+      <div class="split-text">
+        <span class="tag">{{ e.ellipsoidal.tag }}</span>
+        <h2 class="section-title">{{ e.ellipsoidal.title }}</h2>
+        <p class="section-lead">{{ e.ellipsoidal.body | safe }}</p>
+      </div>
+      <div class="code-card">
+        <pre><code>import numpy as np
+import healpix_geo.nested as hpx
+
+lon = np.array([2.35, -74.0])    # Paris, New York
+lat = np.array([48.85, 40.71])
+
+# HEALPix cell ids on the WGS84 ellipsoid — not a sphere
+cells = hpx.lonlat_to_healpix(lon, lat, depth=12, ellipsoid="WGS84")
+
+parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
+        {% if e.ellipsoidal.code_caption %}<p class="code-caption">{{ e.ellipsoidal.code_caption }}{% if e.ellipsoidal.code_url %} <a href="{{ e.ellipsoidal.code_url }}" target="_blank" rel="noopener">View the figure code →</a>{% endif %}</p>{% endif %}
+      </div>
+    </div>
+    <div class="figure-block">
+      <figure class="figure figure-wide">
+        <img src="{{ get_url(path=e.ellipsoidal.image) }}" alt="{{ e.ellipsoidal.image_caption }}">
+        <figcaption>{{ e.ellipsoidal.image_caption }}</figcaption>
+      </figure>
+      {% if e.ellipsoidal.image_code %}{{ cards::code_box(path=e.ellipsoidal.image_code) }}{% endif %}
+    </div>
+    {% if e.ellipsoidal.results %}
+    <h3 class="subsection-title">{{ e.ellipsoidal.results_title }}</h3>
+    <div class="figure-stack">
+      {% for r in e.ellipsoidal.results %}
+      <div class="figure-block">
+        <figure class="figure">
+          <img src="{{ get_url(path=r.image) }}" alt="{{ r.caption }}">
+          <figcaption>{{ r.caption }}</figcaption>
+        </figure>
+        {% if r.code %}{{ cards::code_box(path=r.code) }}{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if e.ellipsoidal.code_path %}
+    <p class="code-caption code-allnote">All four figures come from one script:
+      <code>{{ e.ellipsoidal.code_path }}</code>
+      — reproduce with <code>pip install -r scripts/figures/requirements.txt &amp;&amp; python {{ e.ellipsoidal.code_path }}</code>{% if e.ellipsoidal.code_url %} · <a href="{{ e.ellipsoidal.code_url }}" target="_blank" rel="noopener">View on GitHub →</a>{% endif %}</p>
+    {% endif %}
+  </div>
+</section>
+
+{# ── Tools ────────────────────────────────────────────────────────────── #}
+<section class="section section-alt" id="tools">
+  <div class="container">
+    <span class="tag">{{ e.tools_section.tag }}</span>
+    <h2 class="section-title">{{ e.tools_section.title }}</h2>
+    <p class="section-lead">{{ e.tools_section.subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in e.tools_section.items %}
+        {{ cards::tool_card(item=item) }}
+      {% endfor %}
+    </div>
+
+    {% if e.integrations %}
+    <h3 class="subsection-title subsection-title-left">{{ e.integrations.title }}</h3>
+    <p class="section-lead">{{ e.integrations.subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in e.integrations.items %}
+        {{ cards::tool_card(item=item) }}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{# ── Demos ────────────────────────────────────────────────────────────── #}
+<section class="section" id="demos">
+  <div class="container">
+    <span class="tag">{{ e.demos.tag }}</span>
+    <h2 class="section-title">{{ e.demos.title }}</h2>
+    <p class="section-lead">{{ e.demos.subtitle }}</p>
+    <div class="demo-grid">
+      {% for d in e.demos.items %}
+      <a class="demo-card" href="{{ d.url }}" target="_blank" rel="noopener">
+        <h3>{{ d.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+        <p>{{ d.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Consortium ───────────────────────────────────────────────────────── #}
+<section class="section section-alt" id="consortium">
+  <div class="container">
+    <span class="tag">{{ e.consortium.tag }}</span>
+    <h2 class="section-title">{{ e.consortium.title }}</h2>
+    <p class="section-lead">{{ e.consortium.subtitle }}</p>
+    <div class="logo-row">
+      {% for m in e.consortium.members %}
+      <a class="logo-item" href="{{ m.url }}" target="_blank" rel="noopener" title="{{ m.name }}">
+        <img src="{{ get_url(path=m.logo) }}" alt="{{ m.name }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
