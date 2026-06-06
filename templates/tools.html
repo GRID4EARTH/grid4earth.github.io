@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "macros/cards.html" as cards %}
+
+{% block title %}Tools — GRID4EARTH{% endblock title %}
+{% block description %}The GRID4EARTH open-source HEALPix tool family: index, resample, analyse, plot and visualize Earth data on a common DGGS.{% endblock description %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">OPEN-SOURCE TOOLS</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="page-lead">{{ page.description }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if page.content %}<div class="prose" style="margin-bottom:44px;">{{ page.content | safe }}</div>{% endif %}
+    <div class="tool-grid">
+      {% for item in config.extra.tools_section.items %}
+        {{ cards::tool_card(item=item) }}
+      {% endfor %}
+    </div>
+
+    {% if config.extra.integrations %}
+    <h3 class="subsection-title subsection-title-left">{{ config.extra.integrations.title }}</h3>
+    <p class="section-lead">{{ config.extra.integrations.subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in config.extra.integrations.items %}
+        {{ cards::tool_card(item=item) }}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock content %}

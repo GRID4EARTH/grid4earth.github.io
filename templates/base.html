@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+
+  <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
+  <meta property="og:description" content="{{ config.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ current_url | default(value=config.base_url) }}">
+  <meta property="og:image" content="{{ get_url(path=config.extra.logo_path) }}">
+
+  <link rel="icon" href="{{ get_url(path=config.extra.logo_path) }}">
+  <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  {% block head %}{% endblock head %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ get_url(path='/') }}">
+        <img src="{{ get_url(path=config.extra.logo_path) }}" alt="{{ config.extra.logo_alt }}" class="brand-logo">
+        <span class="brand-name">GRID4EARTH</span>
+      </a>
+      <nav class="site-nav">
+        {% for link in config.extra.nav_links %}
+        <a href="{{ link.url }}" class="nav-link {{ link.class | default(value='') }}"{% if link.url is starting_with("http") %} target="_blank" rel="noopener"{% endif %}>{{ link.name }}</a>
+        {% endfor %}
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.site-nav').classList.toggle('open')">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="{{ get_url(path=config.extra.logo_path) }}" alt="{{ config.extra.logo_alt }}" class="footer-logo">
+        <p>{{ config.extra.footer.description }}</p>
+      </div>
+      <nav class="footer-links">
+        {% for link in config.extra.footer.links %}
+        <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.text }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>{{ config.extra.footer.copyright }}</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import "macros/cards.html" as cards %}
+
+{% block title %}Community & ecosystem — GRID4EARTH{% endblock title %}
+{% block description %}Examples, replication studies and datasets built with the GRID4EARTH HEALPix DGGS tools.{% endblock description %}
+
+{% block content %}
+{% set c = config.extra.community %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">{{ c.tag }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="page-lead">{{ c.subtitle }}</p>
+  </div>
+</section>
+
+{# ── Examples & applications ──────────────────────────────────────────── #}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{{ c.examples_title }}</h2>
+    <p class="section-lead">{{ c.examples_subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in c.examples %}{{ cards::resource_card(item=item) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Replication studies & benchmarks ─────────────────────────────────── #}
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">{{ c.replications_title }}</h2>
+    <p class="section-lead">{{ c.replications_subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in c.replications %}{{ cards::resource_card(item=item) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Open datasets ────────────────────────────────────────────────────── #}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{{ c.datasets_title }}</h2>
+    <p class="section-lead">{{ c.datasets_subtitle }}</p>
+    {% if c.datasets %}
+    <div class="tool-grid">
+      {% for item in c.datasets %}{{ cards::resource_card(item=item) }}{% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-note"><i class="fa-solid fa-database"></i> {{ c.datasets_empty }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{# ── Contribute ───────────────────────────────────────────────────────── #}
+<section class="section section-alt">
+  <div class="container contribute-cta">
+    <h2 class="section-title">{{ c.contribute_title }}</h2>
+    <p class="section-lead">{{ c.contribute_body }}</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a class="btn btn-primary" href="{{ c.contribute_url }}">{{ c.contribute_button | default(value="How to contribute") }}</a>
+      {% if c.contribute_repo_url %}<a class="btn btn-ghost btn-ghost-dark" href="{{ c.contribute_repo_url }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>&nbsp; GitHub organisation</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

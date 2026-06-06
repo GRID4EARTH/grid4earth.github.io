@@ -1,0 +1,306 @@
+# ── GRID4EARTH website (Zola) ────────────────────────────────────────────────
+# The URL the site is built for. On the custom apex domain this is the root.
+base_url = "https://grid4earth.eu"
+
+title = "GRID4EARTH"
+description = "A common Discrete Global Grid System (DGGS) for Copernicus and Destination Earth — ellipsoidal HEALPix for analysis-ready Earth Observation and climate data."
+
+default_language = "en"
+compile_sass = false
+build_search_index = false
+generate_feed = false
+
+[markdown]
+highlight_code = false
+external_links_target_blank = true
+smart_punctuation = true
+
+[slugify]
+paths = "safe"
+anchors = "safe"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# All flat [extra] keys MUST come before any [extra.subsection] header
+# (TOML scoping: keys after [extra.foo] belong to extra.foo)
+# ══════════════════════════════════════════════════════════════════════════════
+[extra]
+
+logo_path = "/grid4earth_logo.png"
+logo_alt = "GRID4EARTH logo"
+
+github = "https://github.com/GRID4EARTH"
+docs_url = "https://grid4earth-tools-inventory.readthedocs.io/"
+
+# ── Navigation ───────────────────────────────────────────────────────────────
+[[extra.nav_links]]
+name = "What is DGGS"
+url = "/#dggs"
+
+[[extra.nav_links]]
+name = "Tools"
+url = "/tools/"
+
+[[extra.nav_links]]
+name = "Demos"
+url = "/#demos"
+
+#[[extra.nav_links]]
+#name = "Community"
+#url = "/community/"
+
+[[extra.nav_links]]
+name = "Consortium"
+url = "/#consortium"
+
+[[extra.nav_links]]
+name = "GitHub"
+url = "https://github.com/GRID4EARTH"
+class = "secondary"
+
+# ── Hero ─────────────────────────────────────────────────────────────────────
+[extra.hero]
+eyebrow = "ESA Digital Twin Earth (DTE) Framework"
+title = "A common grid for Earth Observation and climate data"
+subtitle = "GRID4EARTH builds a unified, standardized data infrastructure on Discrete Global Grid Systems — ellipsoidal HEALPix — so Copernicus Sentinel and Destination Earth data become analysis-ready, interoperable, and cloud-native."
+primary_button_text = "Explore the tools"
+primary_button_url = "/tools/"
+secondary_button_text = "Learn more"
+secondary_button_url = "https://eopf.copernicus.eu"
+image = "/img/grid4earth-globe.png"
+image_alt = "The HEALPix grid drawn on the globe — the GRID4EARTH logo"
+
+# ── Funders strip ─────────────────────────────────────────────────────────────
+[[extra.funders]]
+name = "European Space Agency"
+url = "https://esa.int"
+
+# ── What is GRID4EARTH ────────────────────────────────────────────────────────
+[extra.overview]
+tag = "PROJECT OVERVIEW"
+title = "One grid to bridge models and observations"
+body = "Copernicus and Destination Earth produce massive global datasets on heterogeneous grids — regular lat/lon, reduced Gaussian, swath geometries, unstructured meshes. Reconciling them means ad-hoc regridding that is costly, error-prone, and not reproducible. GRID4EARTH adopts a single Discrete Global Grid System (DGGS) — the HEALPix equal-area grid, referenced to the WGS84 ellipsoid — combined with cloud-optimized Zarr V3 storage, so data from every mission shares one analysis-ready surface."
+
+[[extra.overview.points]]
+title = "Equal area at every depth"
+description = "HEALPix nested is a native quadtree: each pixel subdivides into four children with identical surface area at any resolution — unbiased statistics and trivial up/downscaling."
+icon = "layer-group"
+
+[[extra.overview.points]]
+title = "Ellipsoidal, not just spherical"
+description = "HEALPix is defined on a sphere, but Earth is a WGS84 ellipsoid. At Copernicus resolution that 0.3% flattening matters. An authalic-sphere mapping preserves equal area on the ellipsoid."
+icon = "globe"
+
+[[extra.overview.points]]
+title = "Cloud-native & AI-ready"
+description = "Space-filling-curve locality maps to GPU batches and ML-friendly tiles; quadtree nodes align with Zarr / COG chunks for scalable object-store access."
+icon = "cloud"
+
+# ── DGGS / HEALPix explainer ──────────────────────────────────────────────────
+[extra.dggs]
+tag = "WHY A DGGS"
+title = "From a fragmented grid landscape to analysis-ready data"
+subtitle = "HEALPix gives climate models (on the sphere) and Earth Observation (on the ellipsoid) a single common grid — no regridding, consistent statistics, interoperable workflows."
+figure = "/img/healpix-ellipsoid-globe.png"
+figure_code = "scripts/figures/snippets/healpix-ellipsoid-globe.py"
+figure_caption = "The HEALPix tessellation on Earth — an equal-area quadtree. The 12 base cells (red) each subdivide into four children at every depth (grey). (Whether this is computed on a sphere or the WGS84 ellipsoid is invisible at this scale — that difference is shown below, where it matters.)"
+
+[[extra.dggs.cards]]
+title = "The problem"
+description = "Every dataset lives on a different grid. Users repeat ad-hoc interpolations, lose information to aliasing and area bias, and get different results per workflow. There is no shared standard."
+icon = "triangle-exclamation"
+
+[[extra.dggs.cards]]
+title = "The candidate"
+description = "HEALPix — Hierarchical Equal Area isoLatitude Pixelisation. Already adopted by DestinE's Climate Digital Twin, ECMWF, Planck, WMAP and Euclid. A native quadtree with equal-area cells and iso-latitude rings."
+icon = "border-all"
+
+[[extra.dggs.cards]]
+title = "The GRID4EARTH path"
+description = "Ellipsoidal HEALPix via the authalic sphere: an exact, invertible, area-preserving mapping that keeps the equal-area guarantee on WGS84. Backward compatible with standard HEALPix — only the coordinate mapping changes, no new tooling."
+icon = "compass-drafting"
+
+# ── Ellipsoidal HEALPix / what healpix-geo does ────────────────────────────────
+[extra.ellipsoidal]
+tag = "ELLIPSOIDAL HEALPIX"
+title = "How healpix-geo keeps equal area on the real Earth"
+body = "HEALPix is defined on a perfect sphere — but Earth is a WGS84 ellipsoid. At Copernicus resolution that ~0.3% flattening introduces a latitude-dependent area bias of up to 0.67%, enough to break zonal statistics. <strong>healpix-geo</strong> maps the ellipsoid onto an authalic (equal-area) sphere, pixelises it with standard HEALPix, then maps back. The transform is exact, invertible to ~1 nm, and backward compatible with spherical HEALPix — only the coordinate mapping changes, so no new tooling is needed."
+image = "/img/ellipsoid-authalic-healpix.png"
+image_code = "scripts/figures/snippets/ellipsoid-authalic-healpix.py"
+image_caption = "Ellipsoid → authalic sphere → HEALPix → ellipsoid pixelization. The authalic mapping preserves surface area, so the hierarchical, iso-latitude and equal-area properties carry over to WGS84. (Ellipse flattening exaggerated for clarity.)"
+code_caption = "Evaluate HEALPix on the WGS84 ellipsoid — one keyword. The sphere-vs-WGS84 comparison below is produced by this same library."
+code_url = "https://github.com/GRID4EARTH/grid4earth.github.io/blob/main/scripts/figures/make_dggs_figures.py"
+code_path = "scripts/figures/make_dggs_figures.py"
+results_title = "Why the reference surface matters"
+
+[[extra.ellipsoidal.results]]
+image = "/img/healpix-sphere-vs-ellipsoid.png"
+code = "scripts/figures/snippets/healpix-sphere-vs-ellipsoid.py"
+caption = "Switching the reference surface from a sphere to WGS84 reassigns a latitude-dependent share of points to a different cell — exact at the equator and poles, largest at mid-latitudes. Ignoring the ellipsoid bakes this bias into Copernicus-resolution analysis. Generated with healpix-geo."
+
+[[extra.ellipsoidal.results]]
+image = "/img/healpix-resample-demo.png"
+code = "scripts/figures/snippets/healpix-resample-demo.py"
+caption = "A continuous field on a regular lon/lat grid (left) aggregated onto equal-area HEALPix cells (right). Note how cells widen in longitude toward the poles — that is the equal-area tessellation, where lon/lat grids instead shrink. Generated with healpix-geo."
+
+# ── Tools section header ───────────────────────────────────────────────────────
+# Cards below link straight to each tool's own documentation — we don't duplicate
+# the docs here. To add a tool: copy an [[extra.tools_section.items]] block.
+[extra.tools_section]
+tag = "OPEN-SOURCE TOOLS"
+title = "The HEALPix tool family"
+subtitle = "A coherent open-source stack — built by GRID4EARTH — to index, resample, analyse and plot Earth data on the HEALPix grid. All free, on PyPI / conda-forge, with WGS84 ellipsoidal support."
+
+[[extra.tools_section.items]]
+name = "healpix-geo"
+tagline = "Core HEALPix coordinate algorithms for the geosciences, on the WGS84 ellipsoid. The foundation the rest of the stack builds on."
+icon = "earth-europe"
+doc_url = "https://healpix-geo.readthedocs.io/"
+repo_url = "https://github.com/GRID4EARTH/healpix-geo"
+pypi_url = "https://pypi.org/project/healpix-geo/"
+conda_url = "https://anaconda.org/conda-forge/healpix-geo"
+
+[[extra.tools_section.items]]
+name = "healpix-resample"
+tagline = "Regrid (lon, lat) data onto a HEALPix grid with GPU-accelerated sparse operators — nearest-neighbour and PSF interpolation."
+icon = "arrows-to-dot"
+doc_url = "https://grid4earth.github.io/healpix-resample/"
+repo_url = "https://github.com/GRID4EARTH/healpix-resample"
+
+[[extra.tools_section.items]]
+name = "healpix-analyse"
+tagline = "A differentiable PyTorch toolkit for analysing signals on HEALPix grids — spherical harmonics, gauge-equivariant convolution, multi-resolution."
+icon = "wave-square"
+doc_url = "https://grid4earth.github.io/healpix-analyse/"
+repo_url = "https://github.com/GRID4EARTH/healpix-analyse"
+
+[[extra.tools_section.items]]
+name = "healpix-plot"
+tagline = "Fast, practical static plots of HEALPix data with matplotlib and cartopy, with WGS84 ellipsoidal support."
+icon = "map"
+doc_url = "https://grid4earth.github.io/healpix-plot/"
+repo_url = "https://github.com/GRID4EARTH/healpix-plot"
+
+# ── Viewers & integrations ─────────────────────────────────────────────────────
+# Third-party tools GRID4EARTH integrates with / extends — not project-authored.
+# The `note` line attributes authorship. To add one: copy an items block.
+[extra.integrations]
+title = "Viewers & integrations"
+subtitle = "Third-party tools that GRID4EARTH extends with HEALPix-ellipsoid support, so DGGS data works in the wider ecosystem."
+
+[[extra.integrations.items]]
+name = "GridLook"
+tagline = "A WebGL 3D globe viewer for HEALPix / DGGS Earth-system data — runs in the browser, loads any public Zarr dataset."
+icon = "globe"
+doc_url = "https://grid4earth.github.io/gridlook/"
+repo_url = "https://github.com/GRID4EARTH/gridlook"
+note = "Developed by external partners — GRID4EARTH added HEALPix-ellipsoid support."
+
+# ── Demos ──────────────────────────────────────────────────────────────────────
+[extra.demos]
+tag = "DGGS IN ACTION"
+title = "Demonstrations"
+subtitle = "Live, reproducible notebooks showing DGGS for scalable geospatial processing, presented at major Earth Observation conferences."
+
+[[extra.demos.items]]
+title = "LPS25 — Living Planet Symposium 2025"
+description = "DGGS: Scalable Geospatial Data Processing for Earth Observation (session C.01.25)."
+url = "https://grid4earth.github.io/LPS25_demo/"
+
+[[extra.demos.items]]
+title = "BIDS25 — Big Data from Space 2025"
+description = "Demonstration of the DGGS-based pipeline for large-scale Earth Observation data."
+url = "https://grid4earth.github.io/BIDS25_demo/"
+
+[[extra.demos.items]]
+title = "DGGS Examples"
+description = "A collection of HEALPix + xdggs + Zarr example notebooks and best practices."
+url = "https://eopf-dggs.github.io/DGGS_examples/"
+
+# ── Consortium ─────────────────────────────────────────────────────────────────
+[extra.consortium]
+tag = "CONSORTIUM"
+title = "Funded by ESA, built by a European consortium"
+subtitle = "GRID4EARTH is funded by the European Space Agency within the Digital Twin Earth framework."
+
+[[extra.consortium.members]]
+name = "IFREMER"
+url = "https://www.ifremer.fr/"
+logo = "/IFREMER.png"
+
+[[extra.consortium.members]]
+name = "CNRS"
+url = "https://www.cnrs.fr/"
+logo = "/cnrs.png"
+
+[[extra.consortium.members]]
+name = "Simula"
+url = "https://www.simula.no"
+logo = "/SRL.png"
+
+[[extra.consortium.members]]
+name = "University of Tartu"
+url = "https://ut.ee/en"
+logo = "/Tartu.png"
+
+[[extra.consortium.members]]
+name = "GEORODE"
+url = "https://github.com/benbovy"
+logo = "/georode_logo.png"
+
+# ── Community / ecosystem (the /community page) ────────────────────────────────
+# Contributions built WITH the tools — applications, replications, datasets.
+# To add one, copy an items block into the right group.
+[extra.community]
+tag = "COMMUNITY & ECOSYSTEM"
+title = "Built with GRID4EARTH"
+subtitle = "Open examples, replication studies and datasets that use the HEALPix DGGS tools — including work beyond the core consortium. Contributions are welcome."
+examples_title = "Examples & applications"
+examples_subtitle = "Reproducible notebooks applying the HEALPix DGGS to real Earth Observation and environmental science."
+replications_title = "Replication studies & benchmarks"
+replications_subtitle = "Independent re-runs and performance benchmarks validating DGGS approaches."
+datasets_title = "Open datasets on the HEALPix grid"
+datasets_subtitle = "Datasets published on the HEALPix / WGS84 ellipsoid that anyone can access."
+datasets_empty = "Datasets published on the HEALPix / WGS84 grid will be listed here. Have one to add? Open a pull request on the GRID4EARTH organisation."
+contribute_title = "Add your contribution"
+contribute_body = "Built something with the HEALPix DGGS tools — an example, a replication, a dataset? Adding it to this page is a few lines of text. The step-by-step guide shows exactly how, with a copy-paste template."
+contribute_url = "/contribute/"
+contribute_button = "How to add your contribution"
+contribute_repo_url = "https://github.com/GRID4EARTH"
+
+[[extra.community.examples]]
+name = "earthcare-dggs"
+description = "Converting ESA EarthCARE L2 satellite data (MSI / ATLID / CPR profiles) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
+url = "https://annefou.github.io/earthcare-dggs/"
+repo_url = "https://github.com/annefou/earthcare-dggs"
+doi_url = "https://doi.org/10.5281/zenodo.19709327"
+
+[[extra.community.examples]]
+name = "dggs-biodiversity-bias"
+description = "Why equal-area DGGS cells matter for climate-driven biodiversity science — reproducible notebooks integrating GBIF occurrences with Copernicus / Destination Earth on HEALPix."
+url = "https://annefou.github.io/dggs-biodiversity-bias/"
+repo_url = "https://github.com/annefou/dggs-biodiversity-bias"
+doi_url = "https://doi.org/10.5281/zenodo.19848749"
+
+[[extra.community.replications]]
+name = "dggs_replication_2026"
+description = "Reproducible Docker environment replicating the Law & Ardo (2024) land-use mapping benchmarks, extended with HEALPix (sphere and WGS84 ellipsoid) via healpix-geo."
+url = "https://annefou.github.io/dggs_replication_2026/"
+repo_url = "https://github.com/annefou/dggs_replication_2026"
+doi_url = "https://doi.org/10.5281/zenodo.18339339"
+
+# ── Footer ─────────────────────────────────────────────────────────────────────
+[extra.footer]
+description = "A common Discrete Global Grid System for Copernicus and Destination Earth, within the ESA Digital Twin Earth framework."
+copyright = "GRID4EARTH — funded by the European Space Agency. Content CC-BY-4.0, code MIT."
+
+[[extra.footer.links]]
+text = "GitHub organisation"
+url = "https://github.com/GRID4EARTH"
+
+[[extra.footer.links]]
+text = "Tools inventory"
+url = "https://grid4earth-tools-inventory.readthedocs.io/"
+
+[[extra.footer.links]]
+text = "EOPF"
+url = "https://eopf.copernicus.eu"

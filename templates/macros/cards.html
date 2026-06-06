@@ -1,0 +1,40 @@
+{# Tool card — links straight out to the tool's own docs/repo/package pages.
+   Card is a <div> (not an <a>) so the link pills below are valid nested links. #}
+{# Per-figure collapsible code box: shows the exact function that made the figure above. #}
+{% macro code_box(path) %}
+{% set code = load_data(path=path, format="plain") %}
+<details class="code-details code-details-fig">
+  <summary><i class="fa-solid fa-code"></i> Show the code for this figure
+    <span class="code-details-meta">{{ path | split(pat="/") | last }}</span></summary>
+  <pre><code>{{ code }}</code></pre>
+</details>
+{% endmacro code_box %}
+
+{# Community resource card: an example / replication / dataset built with the tools. #}
+{% macro resource_card(item) %}
+<div class="tool-card">
+  <h3>{{ item.name }}</h3>
+  <p class="tool-tagline">{{ item.description }}</p>
+  {% if item.note %}<p class="tool-note"><i class="fa-solid fa-circle-info"></i> {{ item.note }}</p>{% endif %}
+  <div class="tool-card-links">
+    {% if item.url %}<a class="tool-link primary" href="{{ item.url }}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a>{% endif %}
+    {% if item.repo_url %}<a class="tool-link" href="{{ item.repo_url }}" target="_blank" rel="noopener" title="Source code"><i class="fa-brands fa-github"></i></a>{% endif %}
+    {% if item.doi_url %}<a class="tool-link" href="{{ item.doi_url }}" target="_blank" rel="noopener" title="Zenodo DOI"><i class="fa-solid fa-quote-right"></i> DOI</a>{% endif %}
+  </div>
+</div>
+{% endmacro resource_card %}
+
+{% macro tool_card(item) %}
+<div class="tool-card">
+  <div class="tool-icon"><i class="fa-{{ item.icon_style | default(value='solid') }} fa-{{ item.icon | default(value='cube') }}"></i></div>
+  <h3>{{ item.name }}</h3>
+  <p class="tool-tagline">{{ item.tagline }}</p>
+  {% if item.note %}<p class="tool-note"><i class="fa-solid fa-circle-info"></i> {{ item.note }}</p>{% endif %}
+  <div class="tool-card-links">
+    {% if item.doc_url %}<a href="{{ item.doc_url }}" target="_blank" rel="noopener" class="tool-link primary"><i class="fa-solid fa-book"></i> Docs</a>{% endif %}
+    {% if item.repo_url %}<a href="{{ item.repo_url }}" target="_blank" rel="noopener" class="tool-link" title="Source code"><i class="fa-brands fa-github"></i></a>{% endif %}
+    {% if item.pypi_url %}<a href="{{ item.pypi_url }}" target="_blank" rel="noopener" class="tool-link" title="PyPI"><i class="fa-solid fa-cube"></i></a>{% endif %}
+    {% if item.conda_url %}<a href="{{ item.conda_url }}" target="_blank" rel="noopener" class="tool-link" title="conda-forge"><i class="fa-solid fa-box"></i></a>{% endif %}
+  </div>
+</div>
+{% endmacro tool_card %}

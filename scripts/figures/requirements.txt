@@ -1,0 +1,7 @@
+# Dependencies to regenerate the DGGS figures in static/img/
+#   python -m venv .venv && . .venv/bin/activate
+#   pip install -r scripts/figures/requirements.txt
+#   python scripts/figures/make_dggs_figures.py
+healpix-geo
+matplotlib
+numpy
