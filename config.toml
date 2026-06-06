@@ -232,10 +232,10 @@ name = "CNRS"
 url = "https://www.cnrs.fr/"
 logo = "/cnrs.png"
 
-[[extra.consortium.members]]
-name = "Simula"
-url = "https://www.simula.no"
-logo = "/SRL.png"
+#[[extra.consortium.members]]
+#name = "Simula"
+#url = "https://www.simula.no"
+#logo = "/SRL.png"
 
 [[extra.consortium.members]]
 name = "University of Tartu"
@@ -246,6 +246,11 @@ logo = "/Tartu.png"
 name = "GEORODE"
 url = "https://github.com/benbovy"
 logo = "/georode_logo.png"
+
+[[extra.consortium.members]]
+name = "LifeWatch ERIC"
+url = "https://www.lifewatch.eu"
+logo = "/LifeWatchERIClogo.png"
 
 # ── Community / ecosystem (the /community page) ────────────────────────────────
 # Contributions built WITH the tools — applications, replications, datasets.
