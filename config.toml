@@ -239,7 +239,8 @@ url = "https://eopf-dggs.github.io/DGGS_examples/"
 [extra.consortium]
 tag = "CONSORTIUM"
 title = "Funded by ESA, built by a European consortium"
-subtitle = "GRID4EARTH is funded by the European Space Agency within the Digital Twin Earth framework."
+subtitle = "ESA Contract: 4000147951/25/I-NS - Technical Officer: Vincent Dumoulin."
+
 
 [[extra.consortium.members]]
 name = "IFREMER"
