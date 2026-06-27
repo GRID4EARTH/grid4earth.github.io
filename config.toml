@@ -44,9 +44,9 @@ url = "/tools/"
 name = "Demos"
 url = "/#demos"
 
-#[[extra.nav_links]]
-#name = "Community"
-#url = "/community/"
+[[extra.nav_links]]
+name = "Community"
+url = "/community/"
 
 [[extra.nav_links]]
 name = "Consortium"
@@ -300,6 +300,20 @@ repo_url = "https://github.com/annefou/earthcare-dggs"
 doi_url = "https://doi.org/10.5281/zenodo.19709327"
 
 [[extra.community.examples]]
+name = "white-shark-geolocation-light"
+description = "Open pangeo-fish HMM geolocation of juvenile white sharks on a HEALPix-NESTED grid with healpix-geo and xdggs, given the same light + SST inputs as proprietary GPE3 — extending an independent open-data replication of the method."
+url = "https://annefou.github.io/white-shark-geolocation-light/"
+repo_url = "https://github.com/annefou/white-shark-geolocation-light"
+doi_url = "https://doi.org/10.5281/zenodo.20585041"
+
+[[extra.community.examples]]
+name = "weatherxbiodiversity-projection"
+description = "Projecting Iberian bumblebee extirpation risk under Destination Earth Climate DT (SSP3-7.0) on equal-area HEALPix (depth 6, WGS84) via healpix-geo; a resolution-doubled nside=128 variant extends it."
+url = "https://annefou.github.io/weatherxbiodiversity-projection/"
+repo_url = "https://github.com/annefou/weatherxbiodiversity-projection"
+doi_url = "https://doi.org/10.5281/zenodo.20113777"
+
+[[extra.community.examples]]
 name = "dggs-biodiversity-bias"
 description = "Why equal-area DGGS cells matter for climate-driven biodiversity science — reproducible notebooks integrating GBIF occurrences with Copernicus / Destination Earth on HEALPix."
 url = "https://annefou.github.io/dggs-biodiversity-bias/"
@@ -307,11 +321,25 @@ repo_url = "https://github.com/annefou/dggs-biodiversity-bias"
 doi_url = "https://doi.org/10.5281/zenodo.19848749"
 
 [[extra.community.replications]]
-name = "dggs_replication_2026"
-description = "Reproducible Docker environment replicating the Law & Ardo (2024) land-use mapping benchmarks, extended with HEALPix (sphere and WGS84 ellipsoid) via healpix-geo."
-url = "https://annefou.github.io/dggs_replication_2026/"
-repo_url = "https://github.com/annefou/dggs_replication_2026"
-doi_url = "https://doi.org/10.5281/zenodo.18339339"
+name = "healpix_geo_replication_2026"
+description = "Replicating the Law & Ardo (2024) DGGS land-use mapping benchmarks on HEALPix via healpix-geo, with a spherical-vs-WGS84-ellipsoid comparison — the ellipsoidal companion to an H3-based replication (dggs_replication_2026)."
+url = "https://annefou.github.io/healpix_geo_replication_2026/"
+repo_url = "https://github.com/annefou/healpix_geo_replication_2026"
+doi_url = "https://doi.org/10.5281/zenodo.19488374"
+
+[[extra.community.replications]]
+name = "sdm-scale-replication"
+description = "FORRT replication of Hurlbert & Jetz (2007): how species-richness hotspots shift with grid resolution, on GBIF data indexed to multi-resolution HEALPix-NESTED cells with healpix-geo. Root of a three-study hotspot-bias chain."
+url = "https://annefou.github.io/sdm-scale-replication/"
+repo_url = "https://github.com/annefou/sdm-scale-replication"
+doi_url = "https://doi.org/10.5281/zenodo.20363555"
+
+[[extra.community.replications]]
+name = "fiesta-scattering-sst-healpix-geo"
+description = "Does the WGS84 ellipsoid matter for SST gap-filling? A sphere-vs-ellipsoid HEALPix comparison for scattering-transform reconstruction of Copernicus Marine SST, via healpix-resample / healpix-geo."
+url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
+repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
+doi_url = "https://doi.org/10.5281/zenodo.19693573"
 
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
