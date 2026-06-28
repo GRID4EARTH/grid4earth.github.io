@@ -15,7 +15,7 @@
   </div>
 </section>
 
-{# ── Examples & applications ──────────────────────────────────────────── #}
+{# ── Examples & applications (one list; type tag per card) ─────────────── #}
 <section class="section">
   <div class="container">
     <h2 class="section-title">{{ c.examples_title }}</h2>
@@ -23,32 +23,6 @@
     <div class="tool-grid">
       {% for item in c.examples %}{{ cards::resource_card(item=item) }}{% endfor %}
     </div>
-  </div>
-</section>
-
-{# ── Replication studies & benchmarks ─────────────────────────────────── #}
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="section-title">{{ c.replications_title }}</h2>
-    <p class="section-lead">{{ c.replications_subtitle }}</p>
-    <div class="tool-grid">
-      {% for item in c.replications %}{{ cards::resource_card(item=item) }}{% endfor %}
-    </div>
-  </div>
-</section>
-
-{# ── Open datasets ────────────────────────────────────────────────────── #}
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">{{ c.datasets_title }}</h2>
-    <p class="section-lead">{{ c.datasets_subtitle }}</p>
-    {% if c.datasets %}
-    <div class="tool-grid">
-      {% for item in c.datasets %}{{ cards::resource_card(item=item) }}{% endfor %}
-    </div>
-    {% else %}
-    <p class="empty-note"><i class="fa-solid fa-database"></i> {{ c.datasets_empty }}</p>
-    {% endif %}
   </div>
 </section>
 

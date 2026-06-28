@@ -13,6 +13,7 @@
 {# Community resource card: an example / replication / dataset built with the tools. #}
 {% macro resource_card(item) %}
 <div class="tool-card">
+  {% if item.type %}<span class="card-type" style="display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:0.15rem 0.55rem; border-radius:999px; background:rgba(0,114,178,0.12); color:#0072B2; margin-bottom:0.7rem;">{{ item.type }}</span>{% endif %}
   <h3>{{ item.name }}</h3>
   <p class="tool-tagline">{{ item.description }}</p>
   {% if item.note %}<p class="tool-note"><i class="fa-solid fa-circle-info"></i> {{ item.note }}</p>{% endif %}
@@ -20,6 +21,7 @@
     {% if item.url %}<a class="tool-link primary" href="{{ item.url }}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a>{% endif %}
     {% if item.repo_url %}<a class="tool-link" href="{{ item.repo_url }}" target="_blank" rel="noopener" title="Source code"><i class="fa-brands fa-github"></i></a>{% endif %}
     {% if item.doi_url %}<a class="tool-link" href="{{ item.doi_url }}" target="_blank" rel="noopener" title="Zenodo DOI"><i class="fa-solid fa-quote-right"></i> DOI</a>{% endif %}
+    {% if item.outcome_url %}<a class="tool-link" href="{{ item.outcome_url }}" target="_blank" rel="noopener" title="Replication outcome (nanopublication)"><i class="fa-solid fa-circle-check"></i> Outcome</a>{% endif %}
   </div>
 </div>
 {% endmacro resource_card %}
