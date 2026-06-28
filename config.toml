@@ -349,16 +349,6 @@ repo_url = "https://github.com/annefou/weatherxbiodiversity-projection"
 doi_url = "https://doi.org/10.5281/zenodo.20113777"
 
 [[extra.community.examples]]
-name = "dggs-biodiversity-bias"
-keywords = [{term = "biodiversity", qid = "Q47041"}, {term = "GBIF", qid = "Q1531570"}, {term = "discrete global grid system", qid = "Q117479905"}]
-note = "Built on healpy (spherical HEALPix), not the WGS84-ellipsoidal healpix-geo."
-type = "Application"
-description = "Why equal-area DGGS cells matter for climate-driven biodiversity science — reproducible notebooks integrating GBIF occurrences with Copernicus / Destination Earth on HEALPix."
-url = "https://annefou.github.io/dggs-biodiversity-bias/"
-repo_url = "https://github.com/annefou/dggs-biodiversity-bias"
-doi_url = "https://doi.org/10.5281/zenodo.19848749"
-
-[[extra.community.examples]]
 name = "healpix_geo_replication_2026"
 keywords = [{term = "discrete global grid system", qid = "Q117479905"}, {term = "land use", qid = "Q1165944"}, {term = "reproducibility", qid = "Q1425625"}]
 type = "Benchmark"
@@ -386,16 +376,6 @@ description = "Does the WGS84 ellipsoid matter for SST gap-filling? A sphere-vs-
 url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
 repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
 doi_url = "https://doi.org/10.5281/zenodo.19693573"
-
-[[extra.community.examples]]
-name = "spherical-ml-biodiversity"
-keywords = [{term = "machine learning", qid = "Q2539"}, {term = "marine heatwave", qid = "Q56321065"}, {term = "biodiversity", qid = "Q47041"}]
-note = "Built on healpy (spherical HEALPix), not the WGS84-ellipsoidal healpix-geo."
-type = "Application"
-description = "What spherical machine learning is and why it matters for global Earth science — why flat CNNs fail on the sphere, why HEALPix, and a worked replication on Copernicus marine heatwaves tied to biodiversity outcomes."
-url = "https://annefou.github.io/spherical-ml-biodiversity/"
-repo_url = "https://github.com/annefou/spherical-ml-biodiversity"
-doi_url = "https://doi.org/10.5281/zenodo.20082933"
 
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
