@@ -250,6 +250,7 @@ type = "Application"
 description = "The angular power spectrum of a Sentinel-2 scene on equal-area HEALPix — put EO data on the WGS84 grid with healpix-geo, analyse it with the differentiable (PyTorch) healpix-analyse."
 url = "https://annefou.github.io/healpix-analyse-s2-powerspectrum/"
 repo_url = "https://github.com/annefou/healpix-analyse-s2-powerspectrum"
+doi_url = "https://doi.org/10.5281/zenodo.21000097"
 
 [[extra.featured.items]]
 name = "weatherxbiodiversity-projection"
@@ -398,6 +399,7 @@ type = "Application"
 description = "The angular power spectrum of a Sentinel-2 scene on equal-area HEALPix — put EO data on the WGS84 grid with healpix-geo, analyse it with the differentiable (PyTorch) healpix-analyse."
 url = "https://annefou.github.io/healpix-analyse-s2-powerspectrum/"
 repo_url = "https://github.com/annefou/healpix-analyse-s2-powerspectrum"
+doi_url = "https://doi.org/10.5281/zenodo.21000097"
 
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
