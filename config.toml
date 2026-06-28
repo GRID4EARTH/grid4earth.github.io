@@ -247,12 +247,13 @@ doi_url = "https://doi.org/10.5281/zenodo.20585041"
 [extra.outreach]
 tag = "OUTREACH & DISSEMINATION"
 title = "Talks & demonstrations"
-subtitle = "GRID4EARTH presented at major Earth Observation conferences."
+subtitle = "Point-in-time demonstrations from past conferences. They capture GRID4EARTH at that moment and may not reflect its current tooling — for the latest, maintained work see the Featured examples above."
 
 [[extra.outreach.items]]
 title = "LPS25 — Living Planet Symposium 2025"
 description = "DGGS: Scalable Geospatial Data Processing for Earth Observation (session C.01.25)."
 url = "https://grid4earth.github.io/LPS25_demo/"
+note = "June 2025 demo, built on an earlier healpy / xdggs stack — it predates the current ellipsoidal healpix-geo (WGS84) approach. See the Featured examples for the current state."
 
 [[extra.outreach.items]]
 title = "BIDS25 — Big Data from Space 2025"

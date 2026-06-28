@@ -189,6 +189,7 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
       <a class="demo-card" href="{{ d.url }}" target="_blank" rel="noopener">
         <h3>{{ d.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
         <p>{{ d.description }}</p>
+        {% if d.note %}<p class="demo-note" style="font-size:0.82rem; opacity:0.8; margin-top:0.6rem;"><i class="fa-solid fa-clock-rotate-left"></i> {{ d.note }}</p>{% endif %}
       </a>
       {% endfor %}
     </div>
