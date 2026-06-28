@@ -42,7 +42,7 @@ url = "/tools/"
 
 [[extra.nav_links]]
 name = "Examples"
-url = "/community/"
+url = "/#examples"
 
 [[extra.nav_links]]
 name = "Consortium"
