@@ -17,6 +17,7 @@
   <h3>{{ item.name }}</h3>
   <p class="tool-tagline">{{ item.description }}</p>
   {% if item.note %}<p class="tool-note"><i class="fa-solid fa-circle-info"></i> {{ item.note }}</p>{% endif %}
+  {% if item.keywords %}<div class="card-keywords" style="margin:0.5rem 0 0.1rem;">{% for k in item.keywords %}<a href="https://www.wikidata.org/wiki/{{ k.qid }}" target="_blank" rel="noopener" title="{{ k.term }} — Wikidata {{ k.qid }}" style="display:inline-block; font-size:0.72rem; padding:0.12rem 0.5rem; margin:0.18rem 0.25rem 0 0; border-radius:999px; background:#eef2f6; color:#37506b; text-decoration:none;">{{ k.term }}</a>{% endfor %}</div>{% endif %}
   <div class="tool-card-links">
     {% if item.url %}<a class="tool-link primary" href="{{ item.url }}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a>{% endif %}
     {% if item.repo_url %}<a class="tool-link" href="{{ item.repo_url }}" target="_blank" rel="noopener" title="Source code"><i class="fa-brands fa-github"></i></a>{% endif %}

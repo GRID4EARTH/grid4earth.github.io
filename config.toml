@@ -42,7 +42,7 @@ url = "/tools/"
 
 [[extra.nav_links]]
 name = "Examples"
-url = "/community/"
+url = "/#examples"
 
 [[extra.nav_links]]
 name = "Consortium"
@@ -223,6 +223,7 @@ cta_url = "/community/"
 
 [[extra.featured.items]]
 name = "earthcare-dggs"
+keywords = [{term = "Earth observation", qid = "Q1348989"}, {term = "EarthCARE", qid = "Q1277576"}, {term = "aerosol", qid = "Q104541"}]
 type = "Application"
 description = "Convert ESA EarthCARE L2 satellite data (MSI / ATLID / CPR) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
 url = "https://annefou.github.io/earthcare-dggs/"
@@ -231,6 +232,7 @@ doi_url = "https://doi.org/10.5281/zenodo.19709327"
 
 [[extra.featured.items]]
 name = "healpix_geo_replication_2026"
+keywords = [{term = "discrete global grid system", qid = "Q117479905"}, {term = "land use", qid = "Q1165944"}, {term = "reproducibility", qid = "Q1425625"}]
 type = "Benchmark"
 description = "Why the reference surface matters: HEALPix land-use benchmarks on the sphere vs the WGS84 ellipsoid, computed with healpix-geo."
 url = "https://annefou.github.io/healpix_geo_replication_2026/"
@@ -239,6 +241,7 @@ doi_url = "https://doi.org/10.5281/zenodo.19488374"
 
 [[extra.featured.items]]
 name = "white-shark-geolocation-light"
+keywords = [{term = "great white shark", qid = "Q129026"}, {term = "biologging", qid = "Q131143720"}, {term = "sea surface temperature", qid = "Q1507383"}]
 type = "Replication"
 outcome_url = "https://w3id.org/sciencelive/np/RAlwDA35wFcmV-ZYzOUB_E3SrqPMIlIxWftoiPFbzN-7I"
 description = "Open marine-animal geolocation (pangeo-fish HMM) on a HEALPix-NESTED grid with healpix-geo + xdggs."
@@ -318,6 +321,7 @@ contribute_repo_url = "https://github.com/GRID4EARTH"
 
 [[extra.community.examples]]
 name = "earthcare-dggs"
+keywords = [{term = "Earth observation", qid = "Q1348989"}, {term = "EarthCARE", qid = "Q1277576"}, {term = "aerosol", qid = "Q104541"}]
 type = "Application"
 description = "Converting ESA EarthCARE L2 satellite data (MSI / ATLID / CPR profiles) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
 url = "https://annefou.github.io/earthcare-dggs/"
@@ -326,6 +330,7 @@ doi_url = "https://doi.org/10.5281/zenodo.19709327"
 
 [[extra.community.examples]]
 name = "white-shark-geolocation-light"
+keywords = [{term = "great white shark", qid = "Q129026"}, {term = "biologging", qid = "Q131143720"}, {term = "sea surface temperature", qid = "Q1507383"}]
 type = "Replication"
 outcome_url = "https://w3id.org/sciencelive/np/RAlwDA35wFcmV-ZYzOUB_E3SrqPMIlIxWftoiPFbzN-7I"
 description = "Open pangeo-fish HMM geolocation of juvenile white sharks on a HEALPix-NESTED grid with healpix-geo and xdggs, given the same light + SST inputs as proprietary GPE3 — extending an independent open-data replication of the method."
@@ -335,6 +340,7 @@ doi_url = "https://doi.org/10.5281/zenodo.20585041"
 
 [[extra.community.examples]]
 name = "weatherxbiodiversity-projection"
+keywords = [{term = "bumblebee", qid = "Q25407"}, {term = "climate change", qid = "Q125928"}, {term = "biodiversity", qid = "Q47041"}]
 type = "Replication"
 outcome_url = "https://w3id.org/sciencelive/np/RAPZMgcYbScSAXnrnSySQwZzgSA_rn-xodlMxNlwwQYY8"
 description = "Projecting Iberian bumblebee extirpation risk under Destination Earth Climate DT (SSP3-7.0) on equal-area HEALPix (depth 6, WGS84) via healpix-geo; a resolution-doubled nside=128 variant extends it."
@@ -344,6 +350,8 @@ doi_url = "https://doi.org/10.5281/zenodo.20113777"
 
 [[extra.community.examples]]
 name = "dggs-biodiversity-bias"
+keywords = [{term = "biodiversity", qid = "Q47041"}, {term = "GBIF", qid = "Q1531570"}, {term = "discrete global grid system", qid = "Q117479905"}]
+note = "Built on healpy (spherical HEALPix), not the WGS84-ellipsoidal healpix-geo."
 type = "Application"
 description = "Why equal-area DGGS cells matter for climate-driven biodiversity science — reproducible notebooks integrating GBIF occurrences with Copernicus / Destination Earth on HEALPix."
 url = "https://annefou.github.io/dggs-biodiversity-bias/"
@@ -352,6 +360,7 @@ doi_url = "https://doi.org/10.5281/zenodo.19848749"
 
 [[extra.community.examples]]
 name = "healpix_geo_replication_2026"
+keywords = [{term = "discrete global grid system", qid = "Q117479905"}, {term = "land use", qid = "Q1165944"}, {term = "reproducibility", qid = "Q1425625"}]
 type = "Benchmark"
 description = "Replicating the Law & Ardo (2024) DGGS land-use mapping benchmarks on HEALPix via healpix-geo, with a spherical-vs-WGS84-ellipsoid comparison — the ellipsoidal companion to an H3-based replication (dggs_replication_2026)."
 url = "https://annefou.github.io/healpix_geo_replication_2026/"
@@ -360,6 +369,7 @@ doi_url = "https://doi.org/10.5281/zenodo.19488374"
 
 [[extra.community.examples]]
 name = "sdm-scale-replication"
+keywords = [{term = "species distribution model", qid = "Q122175981"}, {term = "biodiversity", qid = "Q47041"}, {term = "GBIF", qid = "Q1531570"}]
 type = "Replication"
 outcome_url = "https://w3id.org/sciencelive/np/RAzeZKbUCEMXZXDc-WzgHZ4K5mOMwotYhS2uCKDDmdcHI"
 description = "FORRT replication of Hurlbert & Jetz (2007): how species-richness hotspots shift with grid resolution, on GBIF data indexed to multi-resolution HEALPix-NESTED cells with healpix-geo. Root of a three-study hotspot-bias chain."
@@ -369,12 +379,23 @@ doi_url = "https://doi.org/10.5281/zenodo.20363555"
 
 [[extra.community.examples]]
 name = "fiesta-scattering-sst-healpix-geo"
+keywords = [{term = "sea surface temperature", qid = "Q1507383"}, {term = "wavelet", qid = "Q831390"}, {term = "ocean", qid = "Q9430"}]
 type = "Benchmark"
 outcome_url = "https://w3id.org/sciencelive/np/RAs--Uf0wMFAWeTv54c4P37QYNp70c8nxUY9M6HgOfg4c"
 description = "Does the WGS84 ellipsoid matter for SST gap-filling? A sphere-vs-ellipsoid HEALPix comparison for scattering-transform reconstruction of Copernicus Marine SST, via healpix-resample / healpix-geo."
 url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
 repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
 doi_url = "https://doi.org/10.5281/zenodo.19693573"
+
+[[extra.community.examples]]
+name = "spherical-ml-biodiversity"
+keywords = [{term = "machine learning", qid = "Q2539"}, {term = "marine heatwave", qid = "Q56321065"}, {term = "biodiversity", qid = "Q47041"}]
+note = "Built on healpy (spherical HEALPix), not the WGS84-ellipsoidal healpix-geo."
+type = "Application"
+description = "What spherical machine learning is and why it matters for global Earth science — why flat CNNs fail on the sphere, why HEALPix, and a worked replication on Copernicus marine heatwaves tied to biodiversity outcomes."
+url = "https://annefou.github.io/spherical-ml-biodiversity/"
+repo_url = "https://github.com/annefou/spherical-ml-biodiversity"
+doi_url = "https://doi.org/10.5281/zenodo.20082933"
 
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
