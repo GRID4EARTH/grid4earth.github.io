@@ -41,11 +41,7 @@ name = "Tools"
 url = "/tools/"
 
 [[extra.nav_links]]
-name = "Demos"
-url = "/#demos"
-
-[[extra.nav_links]]
-name = "Community"
+name = "Examples"
 url = "/community/"
 
 [[extra.nav_links]]
@@ -215,25 +211,58 @@ repo_url = "https://github.com/GRID4EARTH/gridlook"
 note = "Developed by external partners — GRID4EARTH added HEALPix-ellipsoid support."
 
 # ── Demos ──────────────────────────────────────────────────────────────────────
-[extra.demos]
-tag = "DGGS IN ACTION"
-title = "Demonstrations"
-subtitle = "Live, reproducible notebooks showing DGGS for scalable geospatial processing, presented at major Earth Observation conferences."
+# ── Featured examples (main-page teaser) ───────────────────────────────────────
+# A few flagship applications shown on the landing page; the full catalogue lives
+# on the /community/ page. Cards use the same fields as community items.
+[extra.featured]
+tag = "SEE IT IN ACTION"
+title = "Featured examples"
+subtitle = "A few real-world applications built on the HEALPix DGGS tools — from Earth-observation data conversion to the sphere-vs-WGS84 comparison that motivates ellipsoidal HEALPix."
+cta_text = "Explore all examples →"
+cta_url = "/community/"
 
-[[extra.demos.items]]
+[[extra.featured.items]]
+name = "earthcare-dggs"
+type = "Application"
+description = "Convert ESA EarthCARE L2 satellite data (MSI / ATLID / CPR) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
+url = "https://annefou.github.io/earthcare-dggs/"
+repo_url = "https://github.com/annefou/earthcare-dggs"
+doi_url = "https://doi.org/10.5281/zenodo.19709327"
+
+[[extra.featured.items]]
+name = "healpix_geo_replication_2026"
+type = "Benchmark"
+description = "Why the reference surface matters: HEALPix land-use benchmarks on the sphere vs the WGS84 ellipsoid, computed with healpix-geo."
+url = "https://annefou.github.io/healpix_geo_replication_2026/"
+repo_url = "https://github.com/annefou/healpix_geo_replication_2026"
+doi_url = "https://doi.org/10.5281/zenodo.19488374"
+
+[[extra.featured.items]]
+name = "white-shark-geolocation-light"
+type = "Replication"
+outcome_url = "https://w3id.org/sciencelive/np/RAlwDA35wFcmV-ZYzOUB_E3SrqPMIlIxWftoiPFbzN-7I"
+description = "Open marine-animal geolocation (pangeo-fish HMM) on a HEALPix-NESTED grid with healpix-geo + xdggs."
+url = "https://annefou.github.io/white-shark-geolocation-light/"
+repo_url = "https://github.com/annefou/white-shark-geolocation-light"
+doi_url = "https://doi.org/10.5281/zenodo.20585041"
+
+# ── Outreach & dissemination ───────────────────────────────────────────────────
+# Conference talks / demonstrations of GRID4EARTH (not example repos themselves).
+[extra.outreach]
+tag = "OUTREACH & DISSEMINATION"
+title = "Talks & demonstrations"
+subtitle = "Point-in-time demonstrations from past conferences. They capture GRID4EARTH at that moment and may not reflect its current tooling — for the latest, maintained work see the Featured examples above."
+
+[[extra.outreach.items]]
 title = "LPS25 — Living Planet Symposium 2025"
 description = "DGGS: Scalable Geospatial Data Processing for Earth Observation (session C.01.25)."
 url = "https://grid4earth.github.io/LPS25_demo/"
+note = "June 2025 demo, built on an earlier healpy / xdggs stack — it predates the current ellipsoidal healpix-geo (WGS84) approach. See the Featured examples for the current state."
 
-[[extra.demos.items]]
+[[extra.outreach.items]]
 title = "BIDS25 — Big Data from Space 2025"
-description = "Demonstration of the DGGS-based pipeline for large-scale Earth Observation data."
+description = "Demonstration of the DGGS-based HEALPix pipeline (healpix-geo + xdggs) for large-scale Earth Observation data."
 url = "https://grid4earth.github.io/BIDS25_demo/"
-
-[[extra.demos.items]]
-title = "DGGS Examples"
-description = "A collection of HEALPix + xdggs + Zarr example notebooks and best practices."
-url = "https://eopf-dggs.github.io/DGGS_examples/"
 
 # ── Consortium ─────────────────────────────────────────────────────────────────
 [extra.consortium]
@@ -278,14 +307,9 @@ logo = "/LifeWatchERIClogo.png"
 [extra.community]
 tag = "COMMUNITY & ECOSYSTEM"
 title = "Built with GRID4EARTH"
-subtitle = "Open examples, replication studies and datasets that use the HEALPix DGGS tools — including work beyond the core consortium. Contributions are welcome."
+subtitle = "Open, reproducible work that uses the HEALPix DGGS tools — including contributions beyond the core consortium. Contributions are welcome."
 examples_title = "Examples & applications"
-examples_subtitle = "Reproducible notebooks applying the HEALPix DGGS to real Earth Observation and environmental science."
-replications_title = "Replication studies & benchmarks"
-replications_subtitle = "Independent re-runs and performance benchmarks validating DGGS approaches."
-datasets_title = "Open datasets on the HEALPix grid"
-datasets_subtitle = "Datasets published on the HEALPix / WGS84 ellipsoid that anyone can access."
-datasets_empty = "Datasets published on the HEALPix / WGS84 grid will be listed here. Have one to add? Open a pull request on the GRID4EARTH organisation."
+examples_subtitle = "Reproducible, healpix-geo-based work on real Earth Observation and environmental science — applications, replications and benchmarks, each tagged by kind."
 contribute_title = "Add your contribution"
 contribute_body = "Built something with the HEALPix DGGS tools — an example, a replication, a dataset? Adding it to this page is a few lines of text. The step-by-step guide shows exactly how, with a copy-paste template."
 contribute_url = "/contribute/"
@@ -294,6 +318,7 @@ contribute_repo_url = "https://github.com/GRID4EARTH"
 
 [[extra.community.examples]]
 name = "earthcare-dggs"
+type = "Application"
 description = "Converting ESA EarthCARE L2 satellite data (MSI / ATLID / CPR profiles) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
 url = "https://annefou.github.io/earthcare-dggs/"
 repo_url = "https://github.com/annefou/earthcare-dggs"
@@ -301,6 +326,8 @@ doi_url = "https://doi.org/10.5281/zenodo.19709327"
 
 [[extra.community.examples]]
 name = "white-shark-geolocation-light"
+type = "Replication"
+outcome_url = "https://w3id.org/sciencelive/np/RAlwDA35wFcmV-ZYzOUB_E3SrqPMIlIxWftoiPFbzN-7I"
 description = "Open pangeo-fish HMM geolocation of juvenile white sharks on a HEALPix-NESTED grid with healpix-geo and xdggs, given the same light + SST inputs as proprietary GPE3 — extending an independent open-data replication of the method."
 url = "https://annefou.github.io/white-shark-geolocation-light/"
 repo_url = "https://github.com/annefou/white-shark-geolocation-light"
@@ -308,6 +335,8 @@ doi_url = "https://doi.org/10.5281/zenodo.20585041"
 
 [[extra.community.examples]]
 name = "weatherxbiodiversity-projection"
+type = "Replication"
+outcome_url = "https://w3id.org/sciencelive/np/RAPZMgcYbScSAXnrnSySQwZzgSA_rn-xodlMxNlwwQYY8"
 description = "Projecting Iberian bumblebee extirpation risk under Destination Earth Climate DT (SSP3-7.0) on equal-area HEALPix (depth 6, WGS84) via healpix-geo; a resolution-doubled nside=128 variant extends it."
 url = "https://annefou.github.io/weatherxbiodiversity-projection/"
 repo_url = "https://github.com/annefou/weatherxbiodiversity-projection"
@@ -315,27 +344,33 @@ doi_url = "https://doi.org/10.5281/zenodo.20113777"
 
 [[extra.community.examples]]
 name = "dggs-biodiversity-bias"
+type = "Application"
 description = "Why equal-area DGGS cells matter for climate-driven biodiversity science — reproducible notebooks integrating GBIF occurrences with Copernicus / Destination Earth on HEALPix."
 url = "https://annefou.github.io/dggs-biodiversity-bias/"
 repo_url = "https://github.com/annefou/dggs-biodiversity-bias"
 doi_url = "https://doi.org/10.5281/zenodo.19848749"
 
-[[extra.community.replications]]
+[[extra.community.examples]]
 name = "healpix_geo_replication_2026"
+type = "Benchmark"
 description = "Replicating the Law & Ardo (2024) DGGS land-use mapping benchmarks on HEALPix via healpix-geo, with a spherical-vs-WGS84-ellipsoid comparison — the ellipsoidal companion to an H3-based replication (dggs_replication_2026)."
 url = "https://annefou.github.io/healpix_geo_replication_2026/"
 repo_url = "https://github.com/annefou/healpix_geo_replication_2026"
 doi_url = "https://doi.org/10.5281/zenodo.19488374"
 
-[[extra.community.replications]]
+[[extra.community.examples]]
 name = "sdm-scale-replication"
+type = "Replication"
+outcome_url = "https://w3id.org/sciencelive/np/RAzeZKbUCEMXZXDc-WzgHZ4K5mOMwotYhS2uCKDDmdcHI"
 description = "FORRT replication of Hurlbert & Jetz (2007): how species-richness hotspots shift with grid resolution, on GBIF data indexed to multi-resolution HEALPix-NESTED cells with healpix-geo. Root of a three-study hotspot-bias chain."
 url = "https://annefou.github.io/sdm-scale-replication/"
 repo_url = "https://github.com/annefou/sdm-scale-replication"
 doi_url = "https://doi.org/10.5281/zenodo.20363555"
 
-[[extra.community.replications]]
+[[extra.community.examples]]
 name = "fiesta-scattering-sst-healpix-geo"
+type = "Benchmark"
+outcome_url = "https://w3id.org/sciencelive/np/RAs--Uf0wMFAWeTv54c4P37QYNp70c8nxUY9M6HgOfg4c"
 description = "Does the WGS84 ellipsoid matter for SST gap-filling? A sphere-vs-ellipsoid HEALPix comparison for scattering-transform reconstruction of Copernicus Marine SST, via healpix-resample / healpix-geo."
 url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
 repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
