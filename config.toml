@@ -376,6 +376,14 @@ url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
 repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
 doi_url = "https://doi.org/10.5281/zenodo.19693573"
 
+[[extra.community.examples]]
+name = "spherical-ml-biodiversity"
+type = "Application"
+description = "What spherical machine learning is and why it matters for global Earth science — why flat CNNs fail on the sphere, why HEALPix, and a worked replication on Copernicus marine heatwaves tied to biodiversity outcomes."
+url = "https://annefou.github.io/spherical-ml-biodiversity/"
+repo_url = "https://github.com/annefou/spherical-ml-biodiversity"
+doi_url = "https://doi.org/10.5281/zenodo.20082933"
+
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
 description = "A common Discrete Global Grid System for Copernicus and Destination Earth, within the ESA Digital Twin Earth framework."
