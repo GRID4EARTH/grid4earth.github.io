@@ -163,14 +163,29 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
   </div>
 </section>
 
-{# ── Demos ────────────────────────────────────────────────────────────── #}
-<section class="section" id="demos">
+{# ── Featured examples (teaser → /community/) ─────────────────────────── #}
+<section class="section" id="examples">
   <div class="container">
-    <span class="tag">{{ e.demos.tag }}</span>
-    <h2 class="section-title">{{ e.demos.title }}</h2>
-    <p class="section-lead">{{ e.demos.subtitle }}</p>
+    <span class="tag">{{ e.featured.tag }}</span>
+    <h2 class="section-title">{{ e.featured.title }}</h2>
+    <p class="section-lead">{{ e.featured.subtitle }}</p>
+    <div class="tool-grid">
+      {% for item in e.featured.items %}{{ cards::resource_card(item=item) }}{% endfor %}
+    </div>
+    <div class="hero-actions" style="justify-content:center; margin-top:2rem;">
+      <a class="btn btn-primary" href="{{ e.featured.cta_url }}">{{ e.featured.cta_text }}</a>
+    </div>
+  </div>
+</section>
+
+{# ── Outreach & dissemination ─────────────────────────────────────────── #}
+<section class="section section-alt" id="outreach">
+  <div class="container">
+    <span class="tag">{{ e.outreach.tag }}</span>
+    <h2 class="section-title">{{ e.outreach.title }}</h2>
+    <p class="section-lead">{{ e.outreach.subtitle }}</p>
     <div class="demo-grid">
-      {% for d in e.demos.items %}
+      {% for d in e.outreach.items %}
       <a class="demo-card" href="{{ d.url }}" target="_blank" rel="noopener">
         <h3>{{ d.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
         <p>{{ d.description }}</p>
@@ -181,7 +196,7 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
 </section>
 
 {# ── Consortium ───────────────────────────────────────────────────────── #}
-<section class="section section-alt" id="consortium">
+<section class="section" id="consortium">
   <div class="container">
     <span class="tag">{{ e.consortium.tag }}</span>
     <h2 class="section-title">{{ e.consortium.title }}</h2>
