@@ -251,6 +251,7 @@ description = "The angular power spectrum of a Sentinel-2 scene on equal-area HE
 url = "https://annefou.github.io/healpix-analyse-s2-powerspectrum/"
 repo_url = "https://github.com/annefou/healpix-analyse-s2-powerspectrum"
 doi_url = "https://doi.org/10.5281/zenodo.21000097"
+outcome_url = "https://w3id.org/sciencelive/np/RAW7XIpK-5SmVOoRoVPl-w_xjr9cqgM8xRRIKQ575RVXs"
 
 [[extra.featured.items]]
 name = "weatherxbiodiversity-projection"
@@ -400,6 +401,7 @@ description = "The angular power spectrum of a Sentinel-2 scene on equal-area HE
 url = "https://annefou.github.io/healpix-analyse-s2-powerspectrum/"
 repo_url = "https://github.com/annefou/healpix-analyse-s2-powerspectrum"
 doi_url = "https://doi.org/10.5281/zenodo.21000097"
+outcome_url = "https://w3id.org/sciencelive/np/RAW7XIpK-5SmVOoRoVPl-w_xjr9cqgM8xRRIKQ575RVXs"
 
 # ── Footer ─────────────────────────────────────────────────────────────────────
 [extra.footer]
