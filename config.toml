@@ -41,6 +41,10 @@ name = "Tools"
 url = "/tools/"
 
 [[extra.nav_links]]
+name = "Data"
+url = "/#data"
+
+[[extra.nav_links]]
 name = "Examples"
 url = "/#examples"
 
@@ -62,6 +66,8 @@ primary_button_text = "Explore the tools"
 primary_button_url = "/tools/"
 secondary_button_text = "Learn more"
 secondary_button_url = "/#dggs"
+data_button_text = "Browse the data"
+data_button_url = "/#data"
 image = "/img/grid4earth-globe.png"
 image_alt = "The HEALPix grid drawn on the globe — the GRID4EARTH logo"
 
@@ -143,7 +149,7 @@ caption = "A continuous field on a regular lon/lat grid (left) aggregated onto e
 [extra.tools_section]
 tag = "OPEN-SOURCE TOOLS"
 title = "The HEALPix tool family"
-subtitle = "A coherent open-source stack — built by GRID4EARTH — to index, resample, analyse and plot Earth data on the HEALPix grid. All free, on PyPI / conda-forge, with WGS84 ellipsoidal support."
+subtitle = "A coherent open-source stack — built by GRID4EARTH — to index, resample, analyse and plot Earth data on the HEALPix grid. All free and open source, with WGS84 ellipsoidal support."
 
 [[extra.tools_section.items]]
 name = "grid4earth"
@@ -168,6 +174,13 @@ icon = "arrows-to-dot"
 doc_url = "https://grid4earth.github.io/healpix-resample/"
 repo_url = "https://github.com/GRID4EARTH/healpix-resample"
 pypi_url = "https://pypi.org/project/healpix-resample/"
+
+[[extra.tools_section.items]]
+name = "healpix-convert"
+tagline = "Convert EOPF Zarr products (Sentinel-2, Sentinel-3, ERA5, CAMS, ClimateDT…) into HEALPix DGGS-Zarr on the WGS84 ellipsoid — multi-stage, Dask-parallel, cloud-ready, with STAC metadata carried through."
+icon = "right-left"
+repo_url = "https://github.com/GRID4EARTH/healpix-convert"
+note = "Pre-release: not yet on PyPI / conda-forge."
 
 [[extra.tools_section.items]]
 name = "healpix-analyse"
@@ -209,6 +222,29 @@ icon = "globe"
 doc_url = "https://grid4earth.github.io/gridlook/"
 repo_url = "https://github.com/GRID4EARTH/gridlook"
 note = "Developed by external partners — GRID4EARTH added HEALPix-ellipsoid support."
+
+# ── Open data (main-page section) ─────────────────────────────────────────────
+[extra.data]
+tag = "OPEN DATA"
+title = "Browse and view HEALPix datasets"
+body = "GRID4EARTH publishes test datasets already converted to ellipsoidal HEALPix Zarr — Sentinel-2 L1C/L2A, Sentinel-3 OLCI and SLSTR, plus auxiliary ERA5, CAMS and Copernicus DEM. They are catalogued in STAC and stored openly in the cloud, so you can find them, open them in Xarray, or view them on a 3D globe in the browser without installing anything."
+note = "These are test datasets: the layout and metadata may still change."
+
+[[extra.data.buttons]]
+text = "Browse the STAC catalogue"
+url = "https://stac-browser.grid4earth.eu"
+icon = "magnifying-glass"
+class = "btn-primary"
+
+[[extra.data.buttons]]
+text = "View on the globe (Gridlook)"
+url = "https://grid4earth.eu/gridlook/"
+icon = "earth-europe"
+class = "btn-ghost"
+
+[extra.data.experimental]
+text = "Experimental: multi-resolution Sentinel-2 preview"
+url = "https://grid4earth.eu/gridlook-pr235/"
 
 # ── Demos ──────────────────────────────────────────────────────────────────────
 # ── Featured examples (main-page teaser) ───────────────────────────────────────
