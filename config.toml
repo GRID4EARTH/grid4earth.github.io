@@ -220,7 +220,7 @@ note = "Developed by the Xarray community — GRID4EARTH contributes HEALPix-ell
 name = "GridLook"
 tagline = "A WebGL 3D globe viewer for HEALPix / DGGS Earth-system data — runs in the browser, loads any public Zarr dataset."
 icon = "globe"
-doc_url = "https://grid4earth.github.io/gridlook/"
+doc_url = "https://grid4earth.eu/gridlook-preview/"
 repo_url = "https://github.com/GRID4EARTH/gridlook"
 note = "Developed by external partners — GRID4EARTH added HEALPix-ellipsoid support."
 
