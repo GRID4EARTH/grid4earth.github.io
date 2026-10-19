@@ -179,8 +179,9 @@ pypi_url = "https://pypi.org/project/healpix-resample/"
 name = "healpix-convert"
 tagline = "Convert EOPF Zarr products (Sentinel-2, Sentinel-3, ERA5, CAMS, ClimateDT…) into HEALPix DGGS-Zarr on the WGS84 ellipsoid — multi-stage, Dask-parallel, cloud-ready, with STAC metadata carried through."
 icon = "right-left"
+doc_url = "https://grid4earth.eu/healpix-convert/"
 repo_url = "https://github.com/GRID4EARTH/healpix-convert"
-note = "Pre-release: not yet on PyPI / conda-forge."
+pypi_url = "https://pypi.org/project/healpix-convert/"
 
 [[extra.tools_section.items]]
 name = "healpix-analyse"
@@ -238,13 +239,9 @@ class = "btn-primary"
 
 [[extra.data.buttons]]
 text = "View on the globe (Gridlook)"
-url = "https://grid4earth.eu/gridlook/"
+url = "https://grid4earth.eu/gridlook-preview/"
 icon = "earth-europe"
 class = "btn-ghost"
-
-[extra.data.experimental]
-text = "Experimental: multi-resolution Sentinel-2 preview"
-url = "https://grid4earth.eu/gridlook-pr235/"
 
 # ── Demos ──────────────────────────────────────────────────────────────────────
 # ── Featured examples (main-page teaser) ───────────────────────────────────────
