@@ -241,7 +241,7 @@ class = "btn-primary"
 text = "View on the globe (Gridlook)"
 url = "https://grid4earth.eu/gridlook-preview/"
 icon = "earth-europe"
-class = "btn-ghost"
+class = "btn-ghost-dark"
 
 # ── Demos ──────────────────────────────────────────────────────────────────────
 # ── Featured examples (main-page teaser) ───────────────────────────────────────
