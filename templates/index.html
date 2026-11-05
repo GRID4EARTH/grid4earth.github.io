@@ -14,6 +14,7 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="{{ e.hero.primary_button_url }}">{{ e.hero.primary_button_text }}</a>
         <a class="btn btn-ghost" href="{{ e.hero.secondary_button_url }}" target="_blank" rel="noopener">{{ e.hero.secondary_button_text }}</a>
+        {% if e.hero.data_button_text %}<a class="btn btn-ghost" href="{{ e.hero.data_button_url }}">{{ e.hero.data_button_text }}</a>{% endif %}
       </div>
     </div>
     {% if e.hero.image %}
@@ -163,8 +164,26 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
   </div>
 </section>
 
+{# ── Open data ────────────────────────────────────────────────────────── #}
+{% if e.data %}
+<section class="section" id="data">
+  <div class="container">
+    <span class="tag">{{ e.data.tag }}</span>
+    <h2 class="section-title">{{ e.data.title }}</h2>
+    <p class="section-lead">{{ e.data.body }}</p>
+    <div class="hero-actions" style="justify-content:center; margin-top:2rem;">
+      {% for b in e.data.buttons %}
+      <a class="btn {{ b.class }}" href="{{ b.url }}" target="_blank" rel="noopener"><i class="fa-solid fa-{{ b.icon }}"></i> {{ b.text }}</a>
+      {% endfor %}
+    </div>
+    {% if e.data.experimental %}<p class="code-caption" style="text-align:center; margin-top:1rem;"><i class="fa-solid fa-flask"></i> <a href="{{ e.data.experimental.url }}" target="_blank" rel="noopener">{{ e.data.experimental.text }} →</a></p>{% endif %}
+    {% if e.data.note %}<p class="tool-note" style="text-align:center;"><i class="fa-solid fa-circle-info"></i> {{ e.data.note }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
 {# ── Featured examples (teaser → /community/) ─────────────────────────── #}
-<section class="section" id="examples">
+<section class="section section-alt" id="examples">
   <div class="container">
     <span class="tag">{{ e.featured.tag }}</span>
     <h2 class="section-title">{{ e.featured.title }}</h2>
@@ -179,7 +198,7 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
 </section>
 
 {# ── Outreach & dissemination ─────────────────────────────────────────── #}
-<section class="section section-alt" id="outreach">
+<section class="section" id="outreach">
   <div class="container">
     <span class="tag">{{ e.outreach.tag }}</span>
     <h2 class="section-title">{{ e.outreach.title }}</h2>
@@ -197,7 +216,7 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
 </section>
 
 {# ── Consortium ───────────────────────────────────────────────────────── #}
-<section class="section" id="consortium">
+<section class="section section-alt" id="consortium">
   <div class="container">
     <span class="tag">{{ e.consortium.tag }}</span>
     <h2 class="section-title">{{ e.consortium.title }}</h2>
