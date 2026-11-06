@@ -243,6 +243,14 @@ url = "https://grid4earth.eu/gridlook-preview/"
 icon = "earth-europe"
 class = "btn-ghost-dark"
 
+# A still of Gridlook that turns into the live viewer when clicked.
+[extra.data.preview]
+image = "img/gridlook-paris-rgb.jpg"
+alt = "Paris in true colour, Sentinel-2 L2A of 2026-08-12 at HEALPix level 20, in Gridlook"
+caption = "Sentinel-2B Level-2A of 2026-08-12 over Paris in true colour (B04, B03, B02) at HEALPix level 20 (about 6 m), read by Gridlook straight from the object store."
+button_text = "Explore it live on the globe"
+embed_url = "https://grid4earth.eu/gridlook-preview/#https://data.grid4earth.eu/converted-healpix-tiled/sentinel-2-l2a-multires/mean-l20-l12-hcc/S2B_MSIL2A_20260812T104619_R051_O49269_L7_C11186.zarr/measurements/reflectance::varname=20/b04::boundlow=0::boundhigh=0.3::lat=48.8546::lon=2.3461::alt=22125::layers=rgb,1,1,@vars,,,,0,0.25,1.3;coastlines;grid::levelauto=false::px=0::py=0"
+
 # ── Demos ──────────────────────────────────────────────────────────────────────
 # ── Featured examples (main-page teaser) ───────────────────────────────────────
 # Worked notebooks on the data GRID4EARTH publishes (GRID4EARTH/examples); the
