@@ -179,6 +179,23 @@ section[id], [id] { scroll-margin-top: 88px; }
   background: transparent;
 }
 .figure-globe figcaption { margin-left: auto; margin-right: auto; }
+/* Gridlook still that becomes the live viewer on click */
+.figure-live { max-width: 900px; margin: 40px auto 0; text-align: center; }
+.figure-live .live-poster,
+.figure-live iframe {
+  display: block; width: 100%; aspect-ratio: 1216 / 900; border: 0; padding: 0;
+  border-radius: var(--radius); overflow: hidden; background: var(--navy-deep);
+}
+.figure-live .live-poster { position: relative; cursor: pointer; }
+.figure-live .live-poster img { height: 100%; object-fit: cover; border: 0; border-radius: 0; }
+.figure-live .live-play {
+  position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%);
+  padding: .6rem 1.2rem; border-radius: 999px; white-space: nowrap;
+  background: rgba(6, 25, 46, .85); color: var(--white); font-weight: 600; font-size: .95rem;
+}
+.figure-live .live-poster:hover .live-play,
+.figure-live .live-poster:focus-visible .live-play { background: var(--teal-dark); }
+.figure-live figcaption { margin-left: auto; margin-right: auto; }
 /* full-width concept diagram */
 .figure-wide { max-width: 900px; margin: 8px auto 0; text-align: center; }
 .figure-wide img { padding: 24px; }

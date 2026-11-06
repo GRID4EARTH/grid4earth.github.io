@@ -178,6 +178,16 @@ parents = cells >> 2             # O(1) hierarchical refinement</code></pre>
     </div>
     {% if e.data.experimental %}<p class="code-caption" style="text-align:center; margin-top:1rem;"><i class="fa-solid fa-flask"></i> <a href="{{ e.data.experimental.url }}" target="_blank" rel="noopener">{{ e.data.experimental.text }} →</a></p>{% endif %}
     {% if e.data.note %}<p class="tool-note" style="text-align:center;"><i class="fa-solid fa-circle-info"></i> {{ e.data.note }}</p>{% endif %}
+    {% if e.data.preview %}
+    <figure class="figure figure-live">
+      <button type="button" class="live-poster" data-src="{{ e.data.preview.embed_url }}" data-title="{{ e.data.preview.alt }}"
+        onclick="var f=document.createElement('iframe'); f.src=this.dataset.src; f.title=this.dataset.title; f.allow='fullscreen'; this.replaceWith(f);">
+        <img src="{{ get_url(path=e.data.preview.image) }}" alt="{{ e.data.preview.alt }}" loading="lazy">
+        <span class="live-play"><i class="fa-solid fa-earth-europe"></i> {{ e.data.preview.button_text }}</span>
+      </button>
+      <figcaption>{{ e.data.preview.caption }} <a href="{{ e.data.preview.embed_url }}" target="_blank" rel="noopener">Open in a new tab →</a></figcaption>
+    </figure>
+    {% endif %}
   </div>
 </section>
 {% endif %}

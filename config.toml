@@ -243,59 +243,33 @@ url = "https://grid4earth.eu/gridlook-preview/"
 icon = "earth-europe"
 class = "btn-ghost-dark"
 
+# A still of Gridlook that turns into the live viewer when clicked.
+[extra.data.preview]
+image = "img/gridlook-paris-rgb.jpg"
+alt = "Paris in true colour, Sentinel-2 L2A of 2026-08-12 at HEALPix level 20, in Gridlook"
+caption = "Sentinel-2B Level-2A of 2026-08-12 over Paris in true colour (B04, B03, B02) at HEALPix level 20 (about 6 m), read by Gridlook straight from the object store."
+button_text = "Explore it live on the globe"
+embed_url = "https://grid4earth.eu/gridlook-preview/#https://data.grid4earth.eu/converted-healpix-tiled/sentinel-2-l2a-multires/mean-l20-l12-hcc/S2B_MSIL2A_20260812T104619_R051_O49269_L7_C11186.zarr/measurements/reflectance::varname=20/b04::boundlow=0::boundhigh=0.3::lat=48.8546::lon=2.3461::alt=22125::layers=rgb,1,1,@vars,,,,0,0.25,1.3;coastlines;grid::levelauto=false::px=0::py=0"
+
 # ── Demos ──────────────────────────────────────────────────────────────────────
 # ── Featured examples (main-page teaser) ───────────────────────────────────────
-# A few flagship applications shown on the landing page; the full catalogue lives
-# on the /community/ page. Cards use the same fields as community items.
+# Worked notebooks on the data GRID4EARTH publishes (GRID4EARTH/examples); the
+# community applications live on the /community/ page. Cards use the same fields
+# as community items.
 [extra.featured]
 tag = "SEE IT IN ACTION"
 title = "Featured examples"
-subtitle = "One worked, runnable example per GRID4EARTH tool — each showcasing a different part of the stack, from indexing to resampling to analysis to plotting."
-cta_text = "Explore all examples →"
+subtitle = "Worked, runnable notebooks on the data GRID4EARTH publishes. They read the public object store directly: no account, no download beforehand."
+cta_text = "Community examples and applications →"
 cta_url = "/community/"
 
 [[extra.featured.items]]
-name = "earthcare-dggs"
-tool = "healpix-geo"
-keywords = [{term = "Earth observation", qid = "Q1348989"}, {term = "EarthCARE", qid = "Q1277576"}, {term = "aerosol", qid = "Q104541"}]
-type = "Application"
-description = "Convert ESA EarthCARE L2 satellite data (MSI / ATLID / CPR) to HEALPix DGGS-Zarr with healpix-geo and xdggs."
-url = "https://annefou.github.io/earthcare-dggs/"
-repo_url = "https://github.com/annefou/earthcare-dggs"
-doi_url = "https://doi.org/10.5281/zenodo.19709327"
-
-[[extra.featured.items]]
-name = "fiesta-scattering-sst-healpix-geo"
-tool = "healpix-resample"
-keywords = [{term = "sea surface temperature", qid = "Q1507383"}, {term = "wavelet", qid = "Q831390"}, {term = "ocean", qid = "Q9430"}]
-type = "Benchmark"
-outcome_url = "https://w3id.org/sciencelive/np/RAs--Uf0wMFAWeTv54c4P37QYNp70c8nxUY9M6HgOfg4c"
-description = "Does the WGS84 ellipsoid matter for SST gap-filling? A sphere-vs-ellipsoid HEALPix comparison for scattering-transform reconstruction of Copernicus Marine SST, via healpix-resample / healpix-geo."
-url = "https://annefou.github.io/fiesta-scattering-sst-healpix-geo/"
-repo_url = "https://github.com/annefou/fiesta-scattering-sst-healpix-geo"
-doi_url = "https://doi.org/10.5281/zenodo.19693573"
-
-[[extra.featured.items]]
-name = "healpix-analyse-s2-powerspectrum"
-tool = "healpix-analyse"
-keywords = [{term = "Sentinel-2", qid = "Q4302480"}, {term = "power spectrum", qid = "Q1331626"}, {term = "Earth observation", qid = "Q1348989"}]
-type = "Application"
-description = "The angular power spectrum of a Sentinel-2 scene on equal-area HEALPix — put EO data on the WGS84 grid with healpix-geo, analyse it with the differentiable (PyTorch) healpix-analyse."
-url = "https://annefou.github.io/healpix-analyse-s2-powerspectrum/"
-repo_url = "https://github.com/annefou/healpix-analyse-s2-powerspectrum"
-doi_url = "https://doi.org/10.5281/zenodo.21000097"
-outcome_url = "https://w3id.org/sciencelive/np/RAW7XIpK-5SmVOoRoVPl-w_xjr9cqgM8xRRIKQ575RVXs"
-
-[[extra.featured.items]]
-name = "weatherxbiodiversity-projection"
-tool = "healpix-plot"
-keywords = [{term = "bumblebee", qid = "Q25407"}, {term = "climate change", qid = "Q125928"}, {term = "biodiversity", qid = "Q47041"}]
-type = "Replication"
-outcome_url = "https://w3id.org/sciencelive/np/RAPZMgcYbScSAXnrnSySQwZzgSA_rn-xodlMxNlwwQYY8"
-description = "Projecting Iberian bumblebee extirpation risk under Destination Earth Climate DT (SSP3-7.0) on equal-area HEALPix (depth 6, WGS84), plotted with healpix-plot."
-url = "https://annefou.github.io/weatherxbiodiversity-projection/"
-repo_url = "https://github.com/annefou/weatherxbiodiversity-projection"
-doi_url = "https://doi.org/10.5281/zenodo.20113777"
+name = "Sentinel-2: find, open, extract and plot"
+type = "Tutorial"
+keywords = [{term = "Sentinel-2", qid = "Q4302480"}, {term = "Earth observation", qid = "Q1348989"}]
+description = "Find the Sentinel-2 store that covers a place, in the STAC catalogue or from its coordinates alone, open it with Xarray and xdggs, read a point and a region, and plot Paris at 400 m, 50 m and 6 m, reading only the level you need."
+url = "https://github.com/GRID4EARTH/examples/blob/main/notebooks/01-sentinel-2-find-open-plot.ipynb"
+repo_url = "https://github.com/GRID4EARTH/examples"
 
 # ── Outreach & dissemination ───────────────────────────────────────────────────
 # Conference talks / demonstrations of GRID4EARTH (not example repos themselves).
